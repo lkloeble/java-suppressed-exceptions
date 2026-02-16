@@ -13,7 +13,7 @@ A common production scenario:
 - an exception is thrown in business logic
 - a second exception is thrown during resource cleanup
 
-The code compares different handling strategies and reporting styles to show:
+The code compares exception handling strategies and reporting paths to show:
 
 - when suppressed exceptions are preserved
 - when they are lost
