@@ -27,7 +27,17 @@ public final class Runner {
             scenario.run();
         } catch (Throwable t) {
             System.err.println("\n=== " + name + " ===");
+
+            // Production-ish: one-line reporting, often used in error payloads / structured logs.
+            NaiveReporter.report("NAIVE", t);
+
+            // Suppressed-aware reporting: explicitly exposes secondary failures.
+            SuppressedAwareReporter.report("AWARE", t);
+
+            // Raw JVM view.
+            System.err.println("\n-- printStackTrace() --");
             t.printStackTrace(System.err);
         }
+
     }
 }
